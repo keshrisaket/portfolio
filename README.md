@@ -8,7 +8,7 @@
   <a href="https://keshrisaket.github.io/portfolio/">
     <img src="https://img.shields.io/badge/🌐_Live_Demo-00C7B7?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo">
   </a>
-  <a href="https://github.com/keshrisaket414">
+  <a href="https://github.com/keshrisaket">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
   </a>
   <a href="https://www.linkedin.com/in/saketkeshri/">
@@ -22,7 +22,7 @@
 
 I am a **Full Stack Developer** specializing in building scalable, high-performance applications. With a Master’s in Computer Applications and experience across **Spring Boot, GoLang, and the MERN stack**, I bridge the gap between immersive frontend experiences and robust backend architecture. Currently, I am focused on cloud-native solutions and AI-driven automation.
 
-**🔗 Portfolio URL:** [saket-keshri.vercel.app](https://rakibul-hasan-ten.vercel.app/) (Update with your link)
+**🔗 Portfolio URL:** [https://keshrisaket.github.io/portfolio/](https://keshrisaket.github.io/portfolio/) 
 
 ---
 
