@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const ShowcaseSection = () => {
+  const base = import.meta.env.BASE_URL;
   const sectionRef = useRef(null);
   const project1ref = useRef(null);
   const project2ref = useRef(null);
@@ -52,7 +53,7 @@ const ShowcaseSection = () => {
             <div className="flex justify-center bg-[#14283b] py-6 rounded-lg relative overflow-hidden w-full">
              
               <div className="image-wrapper h-180 pt-30 w-full max-w-md overflow-hidden rounded-xl border border-slate-800 shadow-2xl">
-                <img src="/images/Gemini_Generated_Image_2fbumd2fbumd2fbu.png"
+                <img src={`${base}images/Gemini_Generated_Image_2fbumd2fbumd2fbu.png`}
                   alt="ScoreSpare"                
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   loading="lazy"
@@ -75,13 +76,13 @@ const ShowcaseSection = () => {
             <div className="project   " ref={project2ref}> 
               
               <div className="image-wrapper   py-4 bg-[#14283b]">
-                <img src="/images/dehati_web.PNG" alt="BariBnb" />
+                <img src={`${base}images/dehati_web.PNG`} alt="BariBnb" />
               </div>
               <h2>Dehati - A Premium Local Marketplace</h2>
             </div> 
             <div className="project  " ref={project3ref}>
               <div className="image-wrapper py-3 bg-[#14283b]">
-                <img src="/images/dehati_admin.PNG" alt="UsePopcorn" />
+                <img src={`${base}images/dehati_admin.PNG`} alt="UsePopcorn" />
               </div>
               <h2> Dehati Admin - An E-commerce Management Suite </h2>
             </div>

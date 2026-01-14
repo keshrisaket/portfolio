@@ -6,6 +6,7 @@ import ContactExperience from "../components/contact/ContactExperience";
 // import ContactExperience from "../components/models/contact/ContactExperience";
 
 const Contact = () => {
+  const base = import.meta.env.BASE_URL;
   const formRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
@@ -101,7 +102,7 @@ const Contact = () => {
                       {loading ? "Sending..." : "Send Message"}
                     </p>
                     <div className="arrow-wrapper">
-                      <img src="/images/arrow-down.svg" alt="arrow" />
+                      <img src={`${base}images/arrow-down.svg`} alt="arrow" />
                     </div>
                   </div>
                 </button>

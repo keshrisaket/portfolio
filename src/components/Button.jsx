@@ -1,6 +1,7 @@
 import React from "react";
 
 const Button = ({ id, className, text }) => {
+  const base = import.meta.env.BASE_URL;
   return (
     <a
       onClick={(e) => {
@@ -22,7 +23,7 @@ const Button = ({ id, className, text }) => {
         <div className="bg-circle" />
         <p className="text">{text}</p>
         <div className="arrow-wrapper">
-          <img src="/images/arrow-down.svg" alt="arrow" />
+          <img src={`${base}images/arrow-down.svg`} alt="arrow" />
         </div>
       </div>
     </a>
