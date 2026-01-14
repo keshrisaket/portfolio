@@ -11,6 +11,7 @@ import * as THREE from "three";
 
 export function Room(props) {
   const base = import.meta.env.BASE_URL;
+  const { enableEffects = true } = props;
   const { nodes, materials } = useGLTF(`${base}models/optimized-room.glb`);
   const screensRef = useRef();
   const matcapTexture = useTexture(`${base}images/textures/mat1.png`);
@@ -45,15 +46,17 @@ export function Room(props) {
 
   return (
     <group {...props} dispose={null}>
-      <EffectComposer>
-        <SelectiveBloom
-          selection={screensRef}
-          intensity={1.5} // Strength of the bloom
-          luminanceThreshold={0.2} // Minimum luminance needed
-          luminanceSmoothing={0.9} // Smooth transition
-          blendFunction={BlendFunction.ADD} // How it blends
-        />
-      </EffectComposer>
+      {enableEffects ? (
+        <EffectComposer>
+          <SelectiveBloom
+            selection={screensRef}
+            intensity={1.2}
+            luminanceThreshold={0.25}
+            luminanceSmoothing={0.9}
+            blendFunction={BlendFunction.ADD}
+          />
+        </EffectComposer>
+      ) : null}
       <mesh
         geometry={nodes._________6_blinn1_0.geometry}
         material={curtainMaterial}

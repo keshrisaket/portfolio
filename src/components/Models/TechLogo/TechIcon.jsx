@@ -2,8 +2,10 @@ import { Environment, Float, OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useEffect } from "react";
 import * as THREE from "three";
+import { useMediaQuery } from "react-responsive";
 
 const TechIcon = ({ model }) => {
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
   const scene = useGLTF(model.modelPath);
 
   useEffect(() => {
@@ -19,7 +21,11 @@ const TechIcon = ({ model }) => {
   }, [scene]);
 
   return (
-    <Canvas>
+    <Canvas
+      dpr={isMobile ? 1 : [1, 1.5]}
+      frameloop="demand"
+      gl={{ antialias: !isMobile, powerPreference: "high-performance" }}
+    >
       <ambientLight intensity={0.3} />
       <directionalLight position={[5, 5, 5]} intensity={1} />
       <spotLight
@@ -28,7 +34,7 @@ const TechIcon = ({ model }) => {
         penumbra={1}
         intensity={2}
       />
-      <Environment preset="city" />
+      {!isMobile ? <Environment preset="city" /> : null}
 
       {/* 
         The Float component from @react-three/drei is used to 
@@ -47,7 +53,7 @@ const TechIcon = ({ model }) => {
         THREE.Group object contains all the objects (meshes, lights, etc)
         that make up the 3D model.
       */}
-      <Float speed={5.5} rotationIntensity={0.5} floatIntensity={0.9}>
+      <Float speed={isMobile ? 3 : 5.5} rotationIntensity={0.4} floatIntensity={0.7}>
         <group scale={model.scale} rotation={model.rotation}>
           <primitive object={scene.scene} />
         </group>

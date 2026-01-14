@@ -4,6 +4,7 @@ import { techStackIcons, techStackImgs } from "../constants";
 import TechIcon from "../components/Models/TechLogo/TechIcon";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import LazyMount from "../components/LazyMount";
 
 const TechStack = () => {
   useGSAP(() => {
@@ -45,7 +46,16 @@ const TechStack = () => {
                 {/* The tech-icon-wrapper div contains the TechIconCardExperience component, 
                     which renders the 3D model of the tech stack icon. */}
                 <div className="tech-icon-wrapper">
-                  <TechIcon model={techStackIcon} />
+                  <LazyMount
+                    rootMargin="400px"
+                    placeholder={
+                      <div className="w-full h-full flex-center text-blue-50 text-sm">
+                        Loading…
+                      </div>
+                    }
+                  >
+                    <TechIcon model={techStackIcon} />
+                  </LazyMount>
                 </div>
                 {/* The padding-x and w-full classes are used to add horizontal padding to the 
                     text and make it take up the full width of the component. */}

@@ -12,7 +12,12 @@ const HeroExperience = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   return (
-    <Canvas camera={{ position: [0, 0, 15], fov: 45 }}>
+    <Canvas
+      camera={{ position: [0, 0, 15], fov: 45 }}
+      dpr={isMobile ? 1 : [1, 1.5]}
+      frameloop={isMobile ? "demand" : "always"}
+      gl={{ antialias: !isMobile, powerPreference: "high-performance" }}
+    >
       <OrbitControls
         enablePan={false}
         enableZoom={!isTablet}
@@ -22,13 +27,13 @@ const HeroExperience = () => {
         maxPolarAngle={Math.PI / 2}
       />
       <HeroLights />
-      <Particles />
+      {!isMobile ? <Particles count={120} /> : null}
       <group
         scale={isMobile ? 0.7 : 1}
         position={[0, -3.5, 0]}
         rotation={[0, -Math.PI / 4, 0]}
       >
-        <Room />
+        <Room enableEffects={!isMobile} />
       </group>
     </Canvas>
   );
